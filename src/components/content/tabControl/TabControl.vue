@@ -13,15 +13,21 @@
 <script>
 export default {
   name: 'TabControl',
+  props: {
+    title: {
+      type: Array,
+      default: []
+    }
+  },
   data() {
     return {
-      title: ['流行', '新款', '精选'],
       currentIndex: 0
     }
   },
   methods: {
     itemClick(index) {
       this.currentIndex = index
+      this.$emit('tabClick', index)
     }
   },
 }
@@ -37,6 +43,7 @@ export default {
     background-color: #fff;
     position: sticky;
     top: 43px;
+    z-index: 8;
   }
 
   .tab-control-item {
