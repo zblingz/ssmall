@@ -44,6 +44,7 @@ export default {
     //监听上拉加载
     this.scroll.on('pullingUp', () => {
       this.$emit('pullingUp')
+      // this.scroll.finishPullUp()
     })
   },
   methods: {

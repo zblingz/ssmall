@@ -37,10 +37,11 @@ import RecommendView from 'views/home/childcomps/RecommendView.vue'
 import Carousel from 'views/home/childcomps/Carousel'
 import FeatureView from 'views/home/childcomps/FeatureView'
 import TabControl from 'components/content/tabControl/TabControl'
-import BackTop from 'components/content/backTop/BackTop'
 
 import GoodsList from 'components/content/goods/GoodsList'
 import Scroll from 'components/common/scroll/Scroll'
+
+import {backTopMixin} from 'common/mixin'
 export default {
   name: 'Home',
   components: {
@@ -51,8 +52,8 @@ export default {
     TabControl,
     GoodsList,
     Scroll,
-    BackTop
   },
+  mixins: [backTopMixin],
   data() {
     return {
       banner: [],
@@ -65,7 +66,6 @@ export default {
       currentType: 'pop',
       isTabFixed: false,
       tabOffset: 0,
-      isShowBackTop: false,
       saveY: 0
     }
   },
@@ -108,12 +108,9 @@ export default {
       this.$refs.tabControl1.currentIndex = index
       this.$refs.tabControl2.currentIndex = index
     },
-    backClick() {
-      this.$refs.scroll.scrollTo(0, 0)
-    },
-    contentScroll(position) {
+    contentScroll(position)  {
       //backTop是否显示
-      this.isShowBackTop = -position.y > 1000
+      this.listenShopBackTop(position)
 
       //tabControl是否吸顶
       this.isTabFixed = (-position.y) > this.tabOffset 
