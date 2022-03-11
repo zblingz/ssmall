@@ -47,8 +47,8 @@ export default {
   }
 
   .account-item .balance {
-    font-size: 24px;
-    font-weight: 560;
+    font-size: 20px;
+    font-weight: 400;
     color: #ff5f3e;
   }
 
