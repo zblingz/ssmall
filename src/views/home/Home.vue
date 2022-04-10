@@ -40,8 +40,10 @@ import TabControl from 'components/content/tabControl/TabControl'
 
 import GoodsList from 'components/content/goods/GoodsList'
 import Scroll from 'components/common/scroll/Scroll'
+import emitter from 'tiny-emitter'
 
-import {backTopMixin} from 'common/mixin'
+
+import {backTopMixin, itemListenerMixin} from 'common/mixin'
 export default {
   name: 'Home',
   components: {
@@ -53,7 +55,7 @@ export default {
     GoodsList,
     Scroll,
   },
-  mixins: [backTopMixin],
+  mixins: [backTopMixin, itemListenerMixin],
   data() {
     return {
       banner: [],
@@ -81,6 +83,8 @@ export default {
   deactivated() {
     //获取首页滚动的y值
     this.saveY = this.$refs.scroll.getScrollY()
+    //取消全局事件的监听
+    emitter.prototype.off('itemImageLoad', this.itemImgListener)
   },
   created() {
     //请求多个数据
@@ -143,6 +147,7 @@ export default {
       })
     }
   },
+
 }
 </script>
 

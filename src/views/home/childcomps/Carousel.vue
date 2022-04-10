@@ -46,6 +46,8 @@ export default {
   height: 10px;
   border-radius: 50%;
   margin: 3px;
+  position: relative;
+  bottom: 10px;
 }
 .el-carousel img {
   width: 100%;

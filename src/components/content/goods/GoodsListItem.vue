@@ -1,6 +1,6 @@
 <template>
   <div class="goods-item" @click="itemClick">
-    <img v-lazy="showImage" alt="">
+    <img v-lazy="showImage" alt="" @load="imgLoad" :key="showImage">
     <div class="goods-info">
       <p>{{goodsItem.title}}</p>
       <span class="price">{{goodsItem.price}}</span>
@@ -28,6 +28,10 @@ export default {
   methods: {
     itemClick() {
       this.$router.push('/detail/' + this.goodsItem.iid)
+    },
+    imgLoad () {
+      //发射图片监听事件
+      this.$emit('itemImageLoad')
     }
   },
 }

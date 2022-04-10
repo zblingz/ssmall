@@ -33,8 +33,8 @@ export default {
 }
 
 .el-carousel /deep/ .el-carousel__button {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   margin: 2px;
 }
