@@ -1,19 +1,11 @@
-# ssmall
+## 说明
+基于Vue3+vuex的蘑菇街购物商城，前端入门项目，首页对不同类型进行了展示，点击具体商品还可跳转至详情页查看更具体的商品信息，参数，评论等数据，
+以及推荐的相关商品，商品展示部分复用了组件，可点击加入购物车添加商品，可在购物车页面查看选择的商品，并可以进行价格的核算，分类页有对不同类型商品更加具体的分类展示
 
-## Project setup
-```
-npm install
-```
+## 技术栈
+Vue3 + vuex + vue-router + axios
 
-### Compiles and hot-reloads for development
+## 项目运行
 ```
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
